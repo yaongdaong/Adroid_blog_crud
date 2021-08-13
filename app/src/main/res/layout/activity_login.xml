@@ -22,7 +22,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tvUsername"
+                android:id="@+id/tfUsername"
                 android:hint="Enter Username"
                 android:maxLines="1"
                 android:background="@color/white"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tvPassword"
+                android:id="@+id/tfPassword"
                 android:hint="Enter Password"
                 android:maxLines="1"
                 android:background="@color/white"
@@ -58,6 +58,7 @@
             android:layout_height="10dp"/>
 
         <TextView
+            android:id="@+id/tvLinkJoin"
             android:gravity="center"
             android:textColor="@color/purple_500"
             android:layout_width="match_parent"

@@ -1,8 +1,7 @@
 package com.com.blog.util;
 
 import com.com.blog.model.Post;
-import com.com.blog.model.User;
-import com.com.blog.service.dto.CMRespDto;
+import com.com.blog.controller.dto.CMRespDto;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

@@ -1,7 +1,4 @@
-package com.com.blog.service.dto;
-
-import com.com.blog.model.Post;
-import com.google.gson.annotations.SerializedName;
+package com.com.blog.controller.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,4 +11,6 @@ public class CMRespDto<T>{
     private int code;
     private String msg;
     private T data;
+
+
 }

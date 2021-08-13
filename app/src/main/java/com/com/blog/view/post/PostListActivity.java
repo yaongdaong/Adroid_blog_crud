@@ -1,6 +1,5 @@
 package com.com.blog.view.post;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -9,17 +8,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.com.blog.R;
 import com.com.blog.controller.PostController;
+import com.com.blog.controller.dto.CMRespDto;
 import com.com.blog.model.Post;
-import com.com.blog.service.dto.CMRespDto;
-import com.com.blog.util.MyConvert;
 import com.com.blog.view.CustomAppBarActivity;
 import com.com.blog.view.InitActivity;
 import com.com.blog.view.post.adapter.PostListAdapter;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Type;
-import java.util.Collection;
 import java.util.List;
 
 import retrofit2.Call;
@@ -76,17 +70,18 @@ public class PostListActivity extends CustomAppBarActivity implements InitActivi
 
     @Override
     public void initData() {
-        Call<CMRespDto> call =  postController.findAll();
-        call.enqueue(new Callback<CMRespDto>() {
+        postController.findAll().enqueue(new Callback<CMRespDto<List<Post>>>() {
             @Override
-            public void onResponse(Call<CMRespDto> call, Response<CMRespDto> response) {
-                List<Post> posts = MyConvert.toPostCollect(response);
-                postListAdapter.addItems(posts);
+            public void onResponse(Call<CMRespDto<List<Post>>> call, Response<CMRespDto<List<Post>>> response) {
+                CMRespDto<List<Post>> cm = response.body();
+                if(cm.getCode() == 1){
+                    postListAdapter.addItems(cm.getData());
+                }
+
             }
 
             @Override
-            public void onFailure(Call<CMRespDto> call, Throwable t) {
-                Log.d(TAG, "onFailure: "+t.getMessage());
+            public void onFailure(Call<CMRespDto<List<Post>>> call, Throwable t) {
                 t.printStackTrace();
             }
         });

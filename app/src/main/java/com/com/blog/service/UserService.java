@@ -1,14 +1,20 @@
 package com.com.blog.service;
 
+import com.com.blog.controller.dto.CMRespDto;
+import com.com.blog.controller.dto.LoginDto;
+import com.com.blog.model.User;
+
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
+import retrofit2.http.POST;
 
 public interface UserService {
-    @GET("/posts/{id}")
-    Call<String> findById(@Path("id") int id);
+
+    @POST("/login")
+    Call<CMRespDto<User>> login(@Body LoginDto loginDto);
 
     Retrofit retrofit = new Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())

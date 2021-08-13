@@ -1,6 +1,7 @@
 package com.com.blog.view.post.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.com.blog.MainActivity;
 import com.com.blog.R;
 import com.com.blog.model.Post;
+import com.com.blog.view.post.PostDetailActivity;
 import com.com.blog.view.post.PostListActivity;
 
 import java.util.ArrayList;
@@ -19,8 +21,8 @@ import java.util.List;
 
 public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.MyViewHolder> {
 
-    private PostListAdapter postListAdapter = this;
     private static final String TAG = "PostListAdapter";
+    private PostListAdapter postListAdapter = this;
     private PostListActivity mContext;
 
     public PostListAdapter(PostListActivity mContext){
@@ -93,9 +95,15 @@ public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.MyView
 
         private void initLr(){
             itemView.setOnClickListener(v -> {
-                Log.d(TAG, "initListener: "+getAdapterPosition());
-                int index = getAdapterPosition();
-                postListAdapter.removeItem(index);
+                Log.d(TAG, "initLr: 클릭됨 "+getAdapterPosition());
+                Post post = posts.get(getAdapterPosition());
+                Log.d(TAG, "initLr: post.getId() : "+post.getId());
+                Intent intent = new Intent(
+                        mContext,
+                        PostDetailActivity.class
+                );
+                intent.putExtra("postId", post.getId());
+                mContext.startActivity(intent);
             });
         }
 

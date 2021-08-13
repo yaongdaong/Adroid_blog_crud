@@ -23,12 +23,4 @@ public class User {
     private String email;
     private String created;
     private String updated;
-
-    public Timestamp getCreated(){
-        return Timestamp.valueOf(this.created);
-    }
-
-    public Timestamp getUpdated(){
-        return Timestamp.valueOf(this.updated);
-    }
 }
