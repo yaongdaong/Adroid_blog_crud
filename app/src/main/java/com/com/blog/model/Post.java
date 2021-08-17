@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
@@ -29,7 +30,7 @@ import lombok.NoArgsConstructor;
 },*/
 
 @Data
-public class Post {
+public class Post implements Serializable {
 
     private static final String TAG = "Post";
 

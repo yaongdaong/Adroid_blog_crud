@@ -1,10 +1,6 @@
-package com.com.blog.bean;
+package com.com.blog.config;
 
 import com.com.blog.model.User;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 public class SessionUser {
     public static User user;

@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.com.blog.R;
-import com.com.blog.bean.SessionUser;
+import com.com.blog.config.SessionUser;
 import com.com.blog.controller.AuthController;
 import com.com.blog.controller.dto.CMRespDto;
 import com.com.blog.controller.dto.LoginDto;
@@ -70,11 +70,13 @@ public class LoginActivity extends AppCompatActivity implements InitActivity {
                     SessionUser.user = cm.getData();
                     SessionUser.token = headers.get("Authorization");
 
+                    Log.d(TAG, "onResponse: 세션 : "+SessionUser.token);
                     Intent intent = new Intent(
                             mContext,
                             PostListActivity.class
                     );
-                    //intent.setFlags();
+                    // Login -> List
+                    // List
                     startActivity(intent);
                 }
 

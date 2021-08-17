@@ -9,6 +9,7 @@ package com.com.blog.model;
         "updated": "2021-26-11T09:26:05"
 },*/
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
@@ -16,7 +17,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-public class User {
+public class User implements Serializable {
     private int id;
     private String username;
     private String password;

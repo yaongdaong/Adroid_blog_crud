@@ -30,7 +30,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tvTitle"
+                android:id="@+id/tfTitle"
                 android:hint="Enter Title"
                 android:maxLines="1"
                 android:background="@color/white"
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tvContent"
+                android:id="@+id/tfContent"
                 android:hint="Enter Content"
                 android:inputType="textMultiLine"
                 android:background="@color/white"

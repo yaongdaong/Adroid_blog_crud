@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Blog">
         <activity android:name=".view.user.UserInfoActivity" />
-        <activity android:name=".view.post.PostDetailActivity" />
+        <activity android:name=".view.post.PostDetailActivity"
+            android:parentActivityName=".view.post.PostListActivity"
+            />
         <activity android:name=".view.post.PostUpdateActivity" />
         <activity android:name=".view.auth.JoinActivity" />
         <activity android:name=".view.post.PostWriteActivity"/>
